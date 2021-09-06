@@ -1,6 +1,8 @@
 package sort
 
-import sort.SortAlgorithm.swap
+import sort.ArrayUtil.print
+import sort.ArrayUtil.printMeasuredTime
+import sort.ArrayUtil.swap
 import kotlin.time.ExperimentalTime
 import kotlin.time.measureTimedValue
 
@@ -70,80 +72,11 @@ object SortAlgorithm {
         return arr
     }
 
-
-    //퀵 정렬
-    fun quickSort(arr: Array<Int>): Array<Int>{
-        //
-        val left =
-    }
-
-
-    //수색 작전
-   private fun searchOperation(arr: Array<Int>){
-        // 초깃값으로 왼쪽 시작값은 arr[1] / 오른쪽 시작값은 마지막 값인 arr.size - 1
-        var left: Int = 1
-        var right: Int = arr.size - 1
-
-        // 기준 값으로 첫번째 값 설정
-        var pivot: Int= arr[0]
-
-        // 수색 작전 시작
-        // 왼쪽과 오른쪽이 만날 때 동안 실행
-        while (left <= right){
-
-            //왼쪽은 pivot 값보다 작은 값 pass
-            while (arr[left] < pivot){
-                left++
-            }
-
-            //오른쪽은 pivot 보다 큰 값 pass
-            while (arr[right] > pivot){
-                right--
-            }
-
-            // 만약 아직 수색병이 만나기 전 혹은 만났을 때
-            if (left <= right){
-                //swap
-                arr.swap(left, right)
-
-                // 다음 요소 탐색
-                left++
-                right--
-            }
-
-        }
-    }
-
-    //swap 함수
-    fun Array<Int>.swap(index1 : Int, index2: Int){
-        val tmp = this[index1]
-        this[index1] = this[index2]
-        this[index2] = tmp
-    }
 }
 
 @ExperimentalTime
 fun main(){
-    // [100000,99999...,1]
-    var array: Array<Int> = Array<Int>(100000){ i -> i + 1 }.reversedArray()
-    println("데이터 개수 : ${array.size}")
-    //bubbleSort measureTime
-    val measuredTime = measureTimedValue {
-        SortAlgorithm.bubbleSort(array)
-    }
-    println("bubbleSort measured time ==>${measuredTime.duration}")
-
-    //selectSort measureTime
-    val measuredTime2 = measureTimedValue {
-        SortAlgorithm.selectSort(array)
-    }
-    println("selectSort measured time ==>${measuredTime2.duration}")
-
-    //insertSort measureTime
-    val measuredTime3 = measureTimedValue {
-        SortAlgorithm.insertSort(array)
-    }
-    println("insertSort measured time ==>${measuredTime3.duration}")
+    ArrayTest.reversedArrayTest(7000)
 }
 
 
