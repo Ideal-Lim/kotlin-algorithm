@@ -1,4 +1,4 @@
-package sort
+package algorithm.sort
 
 import kotlin.random.Random
 import kotlin.time.ExperimentalTime

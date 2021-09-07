@@ -1,8 +1,8 @@
-package sort
+package algorithm.sort
 
-import sort.ArrayUtil.print
-import sort.ArrayUtil.printMeasuredTime
-import sort.ArrayUtil.swap
+import algorithm.sort.ArrayUtil.print
+import algorithm.sort.ArrayUtil.printMeasuredTime
+import algorithm.sort.ArrayUtil.swap
 import kotlin.time.ExperimentalTime
 import kotlin.time.measureTimedValue
 

@@ -1,4 +1,4 @@
-package binarysearch
+package algorithm.binarysearch
 
 import kotlin.system.measureTimeMillis
 import kotlin.time.Duration

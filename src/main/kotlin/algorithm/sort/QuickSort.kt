@@ -1,7 +1,7 @@
-package sort
+package algorithm.sort
 
-import sort.ArrayUtil.print
-import sort.ArrayUtil.swap
+import algorithm.sort.ArrayUtil.print
+import algorithm.sort.ArrayUtil.swap
 
 object QuickSort {
     // pivot 값이 첫 번째 값
