@@ -1,4 +1,4 @@
-package basic.array
+package dataStructure.array
 
 import java.util.*
 

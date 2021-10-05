@@ -1,4 +1,4 @@
-package list
+package dataStructure.list
 
 
 class LinkedList<T> {
@@ -87,7 +87,7 @@ class LinkedList<T> {
 //        currentSize++
 //    }
 
-    private fun removeFirst(){
+    fun removeFirst(){
         // Empty List
         if (headNode == null){
             return
@@ -103,7 +103,7 @@ class LinkedList<T> {
         currentSize--
     }
 
-    private fun removeLast(){
+    fun removeLast(){
         //Empty List
         if (headNode == null){
             return

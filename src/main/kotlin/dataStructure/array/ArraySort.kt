@@ -1,4 +1,4 @@
-package basic.array
+package dataStructure.array
 
 data class Person(val name : String, val age : Int)
 

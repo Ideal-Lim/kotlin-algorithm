@@ -1,4 +1,4 @@
-package basic.array
+package dataStructure.array
 
 fun main() {
     val arr1: Array<Int?> = arrayOfNulls(3)
