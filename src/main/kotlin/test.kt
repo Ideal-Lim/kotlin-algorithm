@@ -1,28 +1,42 @@
 import java.util.*
+import kotlin.math.pow
 
-fun main(){
-    val sc = Scanner(System.`in`)
+class Heap<E>(capacity: Int = DEFAULT_CAPACITY, comparator: Comparator<in E?>? = null) {
+    val array = arrayOfNulls<Object>(capacity)
+    var size = 0
 
-    // 테스트 개수 C
-    val testNum = sc.nextInt()
-    val list = mutableListOf<String>()
-    for (test in 0 until testNum){
-        val n = sc.nextInt()
-        val scores = IntArray(n)
-
-        for(i in 0 until n){
-            scores[i] = sc.nextInt()
-        }
-        val average = (scores.sum() / n)
-        var upAverageStudent = 0.toFloat()
-        for (i in 0 until n){
-            if (scores[i] > average ){
-                upAverageStudent++
-            }
-        }
-        list.add(String.format("%.3f", upAverageStudent/n*100)+"%")
+    // 받은 인덱스의 부모 노드 인덱스를 반환
+    private fun getParent(index: Int): Int {
+        return index / 2
     }
-    list.forEach { println(it) }
+
+    // 받은 인덱스의 왼쪽 자식 노드 인덱스를 반환
+    private fun getLeftChild(index: Int): Int {
+        return index * 2
+    }
+
+    // 받은 인덱스의 오른쪽 자식 노드 인덱스를 반환
+    private fun getRightChild(index: Int): Int {
+        return index * 2 + 1
+    }
+
+    companion object {
+        private const val DEFAULT_CAPACITY = 10 // 기본 용량
+    }
 }
 
+fun main() {
+    val digitN = arrayListOf<Int>(1,2,3,4,5,6)
+    fun digitToNum(tmpDigit: ArrayList<Int>, firstDigit: Int): Int{
+        if (digitN.size == 1) return firstDigit
+        if (firstDigit == 0) return tmpDigit[0]
 
+        val tmp = ArrayList<Int>(tmpDigit.size)
+        for (i in tmpDigit.indices){
+            tmp.add(tmpDigit[i] * (10.0.pow(tmpDigit.size-i-1)).toInt())
+        }
+        return tmp.sum() + (firstDigit * (10.0.pow(tmpDigit.size))).toInt()
+    }
+
+    println(digitToNum(digitN, 1))
+}
