@@ -26,17 +26,16 @@ class Heap<E>(capacity: Int = DEFAULT_CAPACITY, comparator: Comparator<in E?>? =
 }
 
 fun main() {
-    val digitN = arrayListOf<Int>(1,2,3,4,5,6)
-    fun digitToNum(tmpDigit: ArrayList<Int>, firstDigit: Int): Int{
-        if (digitN.size == 1) return firstDigit
-        if (firstDigit == 0) return tmpDigit[0]
-
-        val tmp = ArrayList<Int>(tmpDigit.size)
-        for (i in tmpDigit.indices){
-            tmp.add(tmpDigit[i] * (10.0.pow(tmpDigit.size-i-1)).toInt())
-        }
-        return tmp.sum() + (firstDigit * (10.0.pow(tmpDigit.size))).toInt()
+    val checkW = Array(8){
+        if (it % 2 ==0 ) CharArray(8){ if (it % 2 == 0) 'W' else 'B' }
+        else CharArray(8){ if (it % 2 == 0) 'B' else 'W' }
+    }
+    val checkB = Array(8){
+        if (it % 2 ==0 ) CharArray(8){ if (it % 2 == 0) 'B' else 'W' }
+        else CharArray(8){ if (it % 2 == 0) 'W' else 'B' }
     }
 
-    println(digitToNum(digitN, 1))
+    println(checkW.contentDeepToString())
+    println(checkB.contentDeepToString())
+
 }
