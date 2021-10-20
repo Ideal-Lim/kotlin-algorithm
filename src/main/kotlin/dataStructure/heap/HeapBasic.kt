@@ -75,10 +75,10 @@ class Heap<E>(capacity: Int = DEFAULT_CAPACITY){
             throw NoSuchElementException()
         }
 
-//        swap(1,size--)
-        array[1] = array[size]
-        array[size] = null
-        size--
+        swap(1,size--)
+//        array[1] = array[size]
+//        array[size] = null
+//        size--
         trickleDown(1)
 
         return removeVal
@@ -97,33 +97,34 @@ class Heap<E>(capacity: Int = DEFAULT_CAPACITY){
         // 마지막에 오른쪽 자식이 클 때
         if (right == size && (array[parent] as Comparable<E>) > (array[left] as E)){
             swap(parent,right)
+            return
         }
 
         // 마지막에 부모가 클 때 (밑에 자식이 없을 때)
-        if (left >= size || right >= size)
+        if (left > size || right > size)
             return
 
         // 왼쪽 자식이 클 때
         if (array[left] as Comparable<E> > array[right] as E && array[parent] as Comparable<E> < array[left] as E) {
-            swap(parent, left);
-            trickleDown(left);
+            swap(parent, left)
+            trickleDown(left)
         }
         // 오른쪽 자식이 클 때
         else if (array[parent] as Comparable<E> < array[right] as E){
-            swap(parent, right);
-            trickleDown(right);
+            swap(parent, right)
+            trickleDown(right)
         }
     }
 }
 
 fun main() {
     val heap = Heap<Int>()
-    for (i in 1..10){
+    for (i in 1..5){
         heap.add(i)
     }
     println(heap.array.contentToString())
 
-    for (i in 1..heap.size){
+    repeat(heap.size){
         heap.remove()
     }
     println(heap.array.contentToString())
