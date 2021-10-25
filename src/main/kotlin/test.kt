@@ -1,5 +1,3 @@
-fun main() {
-    val arrayList = ArrayList<Int>(3)
-
-    println(arrayList.size)
+fun main(args: Array<String>) {
+    print (1/3)
 }

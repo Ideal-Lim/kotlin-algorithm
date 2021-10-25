@@ -1,17 +1,21 @@
 package dataStructure.list
 
 
-class LinkedList<T> {
+class LinkedList<T>{
+
 
     data class Node<T>(
         var data: T?,
         var next: Node<T>?
     )
 
-    private var headNode: Node<T>? = null
+    protected var headNode: Node<T>? = null
     private var lastNode: Node<T>? = null
 
-    var currentSize: Int = 0
+    private var currentSize: Int = 0
+
+    val size: Int
+        get() = currentSize
 
     fun addFirst(data: T){
         val newNode = Node(data, headNode)
@@ -196,7 +200,16 @@ class LinkedList<T> {
         println("$str]")
     }
 
-
+//    override fun hasNext(): Boolean {
+//        return (index != null)
+//    }
+//
+//    override fun next(): T {
+//        if (isFirst) { index = headNode; isFirst = false }
+//        if (!hasNext()) throw NoSuchElementException()
+//        index = index?.next!!
+//        return index?.data!!
+//    }
 
 }
 
